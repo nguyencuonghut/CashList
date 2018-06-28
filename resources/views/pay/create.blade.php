@@ -1,12 +1,13 @@
 @extends('layout.master')
 @section('heading')
     <?php
+    $cash = Session::get('cash');
     $pay = Session::get('pay');
     ?>
-    @if($pay > 0)
-        <h1>{{ __('Phiếu chi tiền mặt') }} ({{number_format($pay)}} VNĐ)</h1>
+    @if(($cash - $pay) > 0)
+        <h1>{{ __('Phiếu chi') }}: {{number_format($cash - $pay)}} VNĐ (Cần: {{number_format($pay)}} VNĐ - Nộp: {{number_format($cash)}} VNĐ)</h1>
     @else
-        <h1>{{ __('Phiếu chi tiền mặt') }}</h1>
+        <h1>{{ __('Phiếu chi') }}</h1>
     @endif
 @stop
 

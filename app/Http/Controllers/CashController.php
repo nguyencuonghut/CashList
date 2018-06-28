@@ -44,7 +44,9 @@ class CashController extends Controller
         if($sum_cash_in < $sum_pay){
             $msg = 'Khách nộp thiếu: ' . number_format($sum_pay - $sum_cash_in) . ' VNĐ. Tạm dừng giao dịch!';
             Session()->flash('error', $msg);
-            return back();
+            return view('cash.error')
+                ->withCash($sum_cash_in)
+                ->withPay($sum_pay);
         }
         $cash = New Cash();
         $cash->num_500k = $request->num_500k;
@@ -70,8 +72,9 @@ class CashController extends Controller
         } elseif($sum_cash_in > $sum_pay){
             $msg = 'Khách nộp thừa: ' . number_format($sum_cash_in - $sum_pay ) . ' VNĐ. Tạo phiếu chi!';
             Session()->flash('success', $msg);
-            //return redirect()->route('pays.create')->with('pay', $sum_cash_in - $sum_pay);
-            return redirect()->route('pays.create')->with('pay', ($sum_cash_in - $sum_pay));
+            return redirect()->route('pays.create')
+                ->with('cash', $sum_cash_in)
+                ->with('pay', $sum_pay);
         }
     }
 
