@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('heading')
-    <h1>{{ __('Lỗi do khách nộp thiếu tiền') }} (Cần: {{number_format($pay)}} VNĐ - Nộp: {{number_format($cash)}} VNĐ)</h1>
+    <h1>{{ __('Lỗi do khách nộp thiếu tiền') }} (Tổng phiếu thu: {{number_format($pay)}} VNĐ - Tổng nộp: {{number_format($cash)}} VNĐ)</h1>
 @stop
 
 @section('content')

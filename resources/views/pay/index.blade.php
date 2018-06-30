@@ -9,8 +9,8 @@
             <a href="{{route('pays.create')}}" class="btn btn-info">
                 Tạo mới
             </a>
-            <a href="{{route('pays.index')}}" class="btn btn-success">
-                Tất cả
+            <a href="{{route('cashes.index')}}" class="btn btn-success">
+                Tất cả phiếu thu
             </a>
         </div>
     </div>

@@ -5,7 +5,7 @@
     $pay = Session::get('pay');
     ?>
     @if(($cash - $pay) > 0)
-        <h1>{{ __('Phiếu chi') }}: {{number_format($cash - $pay)}} VNĐ (Cần: {{number_format($pay)}} VNĐ - Nộp: {{number_format($cash)}} VNĐ)</h1>
+        <h1>{{ __('Phiếu chi') }}: {{number_format($cash - $pay)}} VNĐ (Tổng phiếu thu: {{number_format($pay)}} VNĐ - Tổng nộp: {{number_format($cash)}} VNĐ)</h1>
     @else
         <h1>{{ __('Phiếu chi') }}</h1>
     @endif
@@ -34,6 +34,12 @@
             @include('pay.form', ['submitButtonText' => __('Thêm mới')])
 
             {!! Form::close() !!}
+
+            <hr>
+            <h4>Tổng: <span class="badge" style="background-color: orangered">@{{  new Intl.NumberFormat().format(val_pay_500k * 500000 + val_pay_200k * 200000 + val_pay_100k * 100000
+                + val_pay_50k * 50000 + val_pay_20k * 20000 + val_pay_10k * 10000
+                + val_pay_5k * 5000 + val_pay_2k * 2000 + val_pay_1k * 1000 + val_pay_500 * 500) }}</span> VNĐ
+            </h4>
         </div>
     </div>
 

@@ -14,7 +14,7 @@
         <div class="panel-heading">
             <h3 class="panel-title" style="padding:12px 0px;font-size:25px; "><strong>@yield('heading')</strong></h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-body" id="app">
 
             @if ($message = Session::get('success'))
                 <div class="alert alert-success" role="alert">
@@ -33,9 +33,11 @@
 </div>
 </table>
 
+<script src="{{ asset('js/app.js') }}"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+
 
 @stack('scripts')
 </body>

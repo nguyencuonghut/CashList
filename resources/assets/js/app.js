@@ -16,5 +16,31 @@ require('./bootstrap');
 Vue.component('example', require('./components/Example.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        val_500k: 0,
+        val_200k: 0,
+        val_100k: 0,
+        val_50k: 0,
+        val_20k: 0,
+        val_10k: 0,
+        val_5k: 0,
+        val_2k: 0,
+        val_1k: 0,
+        val_500: 0,
+        val_pay_1: 0,
+        val_pay_2: 0,
+        val_pay_3: 0,
+        val_pay_4: 0,
+        val_pay_500k: 0,
+        val_pay_200k: 0,
+        val_pay_100k: 0,
+        val_pay_50k: 0,
+        val_pay_20k: 0,
+        val_pay_10k: 0,
+        val_pay_5k: 0,
+        val_pay_2k: 0,
+        val_pay_1k: 0,
+        val_pay_500: 0,
+    },
 });
