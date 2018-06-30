@@ -59,7 +59,6 @@ class CashController extends Controller
         $cash->num_2k = $request->num_2k;
         $cash->num_1k = $request->num_1k;
         $cash->num_500 = $request->num_500;
-        $cash->num_other = $request->num_other;
         $cash->pay_1 = $request->pay_1;
         $cash->pay_2 = $request->pay_2;
         $cash->pay_3 = $request->pay_3;
@@ -133,7 +132,7 @@ class CashController extends Controller
     public function anyData()
     {
         $cashes = Cash::select(['id', 'customer_name', 'num_500k', 'num_200k', 'num_100k',
-            'num_50k', 'num_20k', 'num_10k', 'num_5k', 'num_2k', 'num_1k', 'num_500', 'num_other', 'created_at'])
+            'num_50k', 'num_20k', 'num_10k', 'num_5k', 'num_2k', 'num_1k', 'num_500', 'created_at'])
         ->orderBy('id', 'desc');
 
         return DataTables::of($cashes)
@@ -169,9 +168,6 @@ class CashController extends Controller
             })
             ->addColumn('num_500', function ($cashes) {
                 return $cashes->num_500;
-            })
-            ->addColumn('num_other', function ($cashes) {
-                return $cashes->num_other;
             })
             ->addColumn('total', function ($cashes) {
                 return number_format($cashes->num_500k * 500000 + $cashes->num_200k *  200000

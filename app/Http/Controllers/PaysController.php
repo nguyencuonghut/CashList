@@ -47,7 +47,6 @@ class PaysController extends Controller
         $pay->num_2k = $request->num_2k;
         $pay->num_1k = $request->num_1k;
         $pay->num_500 = $request->num_500;
-        $pay->num_other = $request->num_other;
         $pay->save();
 
         Session()->flash('success', 'Tạo phiếu chi thành công!');
@@ -108,7 +107,7 @@ class PaysController extends Controller
     public function anyData()
     {
         $pays = Pay::select(['id', 'num_500k', 'num_200k', 'num_100k',
-            'num_50k', 'num_20k', 'num_10k', 'num_5k', 'num_2k', 'num_1k', 'num_500', 'num_other', 'created_at'])
+            'num_50k', 'num_20k', 'num_10k', 'num_5k', 'num_2k', 'num_1k', 'num_500', 'created_at'])
             ->orderBy('id', 'desc');
 
         return DataTables::of($pays)
@@ -144,9 +143,6 @@ class PaysController extends Controller
             })
             ->addColumn('num_500', function ($pays) {
                 return $pays->num_500;
-            })
-            ->addColumn('num_other', function ($pays) {
-                return $pays->num_other;
             })
             ->addColumn('total', function ($pays) {
                 return number_format($pays->num_500k * 500000 + $pays->num_200k *  200000

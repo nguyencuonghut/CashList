@@ -51,10 +51,6 @@
             {!! Form::label('num_500', __('500'), ['class' => 'control-label']) !!}
             {!! Form::number('num_500', null, ['class' => 'form-control', 'style' => 'width:100%', 'v-model' => 'val_500']) !!}
         </div>
-        <div class="form-group col-sm-3 removeright">
-            {!! Form::label('num_other', __('Khác'), ['class' => 'control-label']) !!}
-            {!! Form::number('num_other', null, ['class' => 'form-control', 'style' => 'width:100%', 'v-model' => 'val_other']) !!}
-        </div>
     </div>
 </div>
 <hr>
