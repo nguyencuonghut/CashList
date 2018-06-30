@@ -55,4 +55,13 @@
 </div>
 
 <br>
-{!! Form::submit($submitButtonText, ['class' => 'btn btn-info']) !!}
+{!! Form::submit($submitButtonText, ['class' => 'btn btn-info', 'id' => 'submit_btn']) !!}
+
+<script>
+    document.getElementById('submit_btn').onkeyup = function(e) {
+        if (e.keyCode === 13) {
+            document.getElementById('submit_btn').submit(); // your form has an id="form"
+        }
+        return true;
+    }
+</script>
